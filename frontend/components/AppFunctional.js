@@ -96,9 +96,11 @@ export default function AppFunctional(props) {
     axios.post('http://localhost:9000/api/result', { "x": x + 1, "y": y + 1, "steps": count, "email": email })
       .then(res => {
         setMessage(res.data.message);
+        setEmail(''); 
       })
       .catch(err => {
         setMessage(email === "foo@bar.baz" ? err.response.data.message : `Ouch: email is required`);
+        setEmail(''); 
       })
   }
 
