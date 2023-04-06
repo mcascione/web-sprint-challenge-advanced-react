@@ -97,7 +97,7 @@ export default function AppFunctional(props) {
         setMessage(res.data.message);
       })
       .catch(err => {
-        console.log(err.message);
+        setMessage(`Ouch: email is required`);
       })
   }
 
