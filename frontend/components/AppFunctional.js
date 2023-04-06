@@ -99,7 +99,7 @@ export default function AppFunctional(props) {
         setEmail(''); 
       })
       .catch(err => {
-        setMessage(email === "foo@bar.baz" ? err.response.data.message : `Ouch: email is required`);
+        setMessage(email === "foo@bar.baz".trim() ? err.response.data.message : (!email ? `Ouch: email is required` : `Ouch: email must be a valid email`));
         setEmail(''); 
       })
   }
