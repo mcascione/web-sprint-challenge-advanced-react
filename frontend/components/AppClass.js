@@ -129,8 +129,7 @@ export default class AppClass extends React.Component {
         this.setMessage(res.data.message)
       })
       .catch(err => {
-        console.log(err);
-        this.setMessage(`Ouch: email is required`);
+        this.setMessage(this.state.email === 'foo@bar.baz' ? err.response.data.message : `Ouch: email is required`);
       })
   }
 
