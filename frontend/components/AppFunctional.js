@@ -1,15 +1,12 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 
-// Suggested initial states
 const initialMessage = ''
 const initialEmail = ''
 const initialSteps = 0
-const initialIndex = 4 // the index the "B" is at
+const initialIndex = 4 
 
 export default function AppFunctional(props) {
-  // THE FOLLOWING HELPERS ARE JUST RECOMMENDATIONS.
-  // You can delete them and build your own logic from scratch.
   const [ count, setCount ] = useState(initialSteps);
   const [ message, setMessage ] = useState(initialMessage);
   const [ email, setEmail ] = useState(initialEmail);
@@ -85,7 +82,6 @@ export default function AppFunctional(props) {
       setMessage(initialMessage);
       setCount(count + 1);
     }
-
   }
 
   function onChange(evt) {
@@ -96,7 +92,7 @@ export default function AppFunctional(props) {
   function onSubmit(evt) {
     // Use a POST request to send a payload to the server.
     evt.preventDefault();
-    axios.post('http://localhost:9000/api/result', { "x": 1, "y": 2, "steps": 3, "email": email })
+    axios.post('http://localhost:9000/api/result', { "x": 1, "y": 2, "steps": count, "email": email })
       .then(res => {
         setMessage(res.data.message);
       })
