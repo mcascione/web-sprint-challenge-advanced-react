@@ -57,11 +57,8 @@ export default class AppClass extends React.Component {
 
   reset = () => {
     // Use this helper to reset all states to their initial values.
-    this.setState({...this.state, 
-      count: initialSteps,
-      message: initialMessage,
-      email: initialEmail,
-      index: initialIndex
+    this.setState({...initialState, 
+      steps: 0
     });
   }
 
