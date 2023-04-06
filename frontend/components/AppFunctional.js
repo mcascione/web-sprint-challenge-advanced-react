@@ -92,11 +92,13 @@ export default function AppFunctional(props) {
   function onSubmit(evt) {
     // Use a POST request to send a payload to the server.
     evt.preventDefault();
-    axios.post('http://localhost:9000/api/result', { "x": 1, "y": 2, "steps": count, "email": email })
+    const { x, y } = getXY();
+    axios.post('http://localhost:9000/api/result', { "x": x + 1, "y": y + 1, "steps": count, "email": email })
       .then(res => {
         setMessage(res.data.message);
       })
       .catch(err => {
+        console.log(err);
         setMessage(`Ouch: email is required`);
       })
   }
